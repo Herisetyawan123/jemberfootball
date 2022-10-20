@@ -16,7 +16,7 @@
   
             <button class="menu-btn focus:outline-none focus:shadow-outline flex flex-wrap items-center">
               <div class="w-8 h-8 overflow-hidden rounded-full">
-                <img class="w-full h-full object-cover" src="img/user.svg" >
+                <img class="w-full h-full object-cover" src={{asset("img/user.svg")}} >
               </div> 
   
               <div class="ml-2 capitalize flex ">
@@ -30,7 +30,7 @@
             <div class="text-gray-500 menu hidden md:mt-10 md:w-full rounded bg-white shadow-md absolute z-20 right-0 w-40 mt-5 py-2 animated faster">
   
               <!-- item -->
-              <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href="#">
+              <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out" href={{ route('dashboard.profile') }}>
                 <i class="fad fa-user-edit text-xs mr-1"></i> 
                 edit my profile
               </a>     
@@ -199,7 +199,7 @@
               <a class="flex flex-row items-center justify-start px-4 py-4 capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out" href="#">
   
                 <div class="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-300">
-                  <img class="w-full h-full object-cover" src="img/user1.jpg" alt="">
+                  <img class="w-full h-full object-cover" src={{asset("img/user1.jpg")}} alt="">
                 </div>
   
                 <div class="flex-1 flex flex-rowbg-green-100">
@@ -220,7 +220,7 @@
               <a class="flex flex-row items-center justify-start px-4 py-4 capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out" href="#">
   
                 <div class="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-300">
-                  <img class="w-full h-full object-cover" src="img/user2.jpg" alt="">
+                  <img class="w-full h-full object-cover" src={{asset("img/user2.jpg" )}}alt="">
                 </div>
   
                 <div class="flex-1 flex flex-rowbg-green-100">
@@ -241,7 +241,7 @@
               <a class="flex flex-row items-center justify-start px-4 py-4 capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out" href="#">
   
                 <div class="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-300">
-                  <img class="w-full h-full object-cover" src="img/user3.jpg" alt="">
+                  <img class="w-full h-full object-cover" src={{asset("img/user3.jpg")}} alt="">
                 </div>
   
                 <div class="flex-1 flex flex-rowbg-green-100">

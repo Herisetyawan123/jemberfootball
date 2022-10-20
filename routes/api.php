@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,6 @@ use Illuminate\Support\Facades\Route;
 
 // landing page
 Route::get('landing', [PostController::class, 'index']);
+
+
+Route::post('/login', [AuthController::class, 'login']);

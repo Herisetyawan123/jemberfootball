@@ -22,20 +22,29 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'Test Account',
-            'email' => 'test@example.com',
-            'password' => Hash::make('12345678')
+            'name'      => 'Test Account',
+            'email'     => 'test@example.com',
+            'password'  => Hash::make('12345678'),
+            'domisili'  => 'Patrang',
+            'nowa'      => "0865432131",
+            'role'      => 'wali'
         ]);
         \App\Models\User::factory()->create([
-            'name' => 'wali Account',
-            'email' => 'wali@wali.com',
-            'password' => Hash::make('wali')
+            'name'      => 'wali Account',
+            'email'     => 'wali@wali.com',
+            'password'  => Hash::make('wali'),
+            'domisili'  => 'Patrang',
+            'nowa'      => "0865432132",
+            'role'      => 'wali'
         ]);
         \App\Models\User::factory()->create([
-            'name' => 'Admin Account',
-            'email' => 'admin@admin.com',
-            'role' => 'admin',
-            'password' => Hash::make('admin')
+            'name'      => 'Admin Account',
+            'email'     => 'admin@admin.com',
+            'role'      => ' admin',
+            'password'  => Hash::make('admin'),
+            'domisili'  => 'Patrang',
+            'nowa'      => "0865432133",
+            'role'      => 'admin'      
         ]);
         for ($i=1; $i <= 20; $i++) { 
             $category = "match";
