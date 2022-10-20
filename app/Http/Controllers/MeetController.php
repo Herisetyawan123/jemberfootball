@@ -11,4 +11,8 @@ class MeetController extends Controller
         $posts = Post::where("category", "meeting")->get();
         return view("dashboard.meeting.index", ["posts" => $posts]);
     }
+
+    public function detail($id){
+        return view('dashboard.meeting.detail');
+    }
 }

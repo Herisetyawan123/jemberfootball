@@ -48,13 +48,14 @@ Route::middleware(['auth'])->group(function() {
     });
     Route::prefix('/pertemuan')->group(function(){
         Route::get('/', [MeetController::class, 'index'])->name('pertemuan.index');
+        Route::get('/detail/{id}', [MeetController::class, 'detail'])->name('pertemuan.detail');
         Route::get('/tambah/{category}', [PostController::class, 'create'])->name('pertemuan.tambah');
     });
-    Route::post('/posts/store', [PostController::class, 'store'])->name("posts.store");
     Route::prefix('/pemain')->group(function(){
         Route::get('/', [SiswaController::class, 'index'])->name('pemain.index');
         Route::get('/tambah', [PostController::class, 'create'])->name('pemain.tambah');
     });
+    Route::post('/posts/store', [PostController::class, 'store'])->name("posts.store");
 });
 
 
