@@ -28,7 +28,7 @@ class AuthController extends Controller
         $token = $user->createToken('authenticated', [$user->email, $user->name])->plainTextToken;
         return response()->json([
             "status" => false,
-            "message"=> "Email atau password yang anda masukan salah",
+            "message"=> "Berhasil login.",
             "accessToken" => 'Bearer '.$token,
         ]);
     }

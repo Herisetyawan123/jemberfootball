@@ -6,12 +6,13 @@ use App\Models\Siswa;
 use App\Models\User;
 use App\Models\Wali;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class WaliController extends Controller
 {
     public function index(){
-        $wali = User::where("role", "wali")->select("name", "domisili", "nowa", "email")->get();
+        $wali = User::where("role", "wali")->select("id", "name", "domisili", "nowa", "email")->get();
         return view("dashboard.wali.index", ["walis" => $wali]);
     }
 
@@ -39,8 +40,14 @@ class WaliController extends Controller
             "wali_id" => $wali->id,
             "domisili" => $data["domisili"]
         ]);
-
         return redirect('/wali');
+    }
+
+    public function delete($id){
+        $user = User::where('id', $id)->select("id")->first();
+        User::destroy($id);
+        $siswa = Siswa::where('wali_id', $user->id)->delete();
+        return back();
 
     }
 }

@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function() {
     Route::prefix('/wali')->group(function(){
         Route::get('/', [WaliController::class, 'index'])->name('wali.index');
         Route::get('/tambah', [WaliController::class, 'create'])->name('wali.tambah');
+        Route::get('/delete/{id}', [WaliController::class, 'delete'])->name('wali.delete');
         Route::post('/store', [WaliController::class, 'store'])->name('wali.store');
     });
     Route::prefix('/pertandingan')->group(function(){
