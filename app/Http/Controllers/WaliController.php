@@ -43,6 +43,34 @@ class WaliController extends Controller
         return redirect('/wali');
     }
 
+    public function edit($id){
+        $wali = User::where('id', $id)->first();
+        return view('dashboard.wali.edit', ["wali" => $wali]);
+    }
+
+    public function update(Request $request){
+        $wali = User::find($request->id);
+        // dd($request->all());
+        if(is_null($request->password)){
+            $wali->update([
+                "name" => $request->name,
+                "email" => $request->email,
+                "nowa" => $request->nowa,
+                "domisili" => $request->domisili,
+            ]);
+        }else{
+            // dd($request->all());
+            $wali->update([
+                "name" => $request->name,
+                "email" => $request->email,
+                "nowa" => $request->nowa,
+                "password" => Hash::make($request->password),
+                "domisili" => $request->domisili,
+            ]);
+        }
+        return redirect()->route('wali.index');
+    }
+
     public function delete($id){
         $user = User::where('id', $id)->select("id")->first();
         User::destroy($id);

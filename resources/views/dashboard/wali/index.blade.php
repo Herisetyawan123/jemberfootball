@@ -26,7 +26,7 @@
                             <td class="border border-l-0 px-4 py-2">{{ $wali->domisili }}</td>
                             <td class="border border-l-0 border-r-0 px-4 py-2 flex">
                                 <a href={{ route("wali.delete", $wali->id) }} class="btn-danger mr-6 lg:mr-0 lg:mb-6"><i class="fad fa-trash-alt mr-3"></i> Hapus</a>
-                                <a href={{ route("wali.delete", $wali->id) }} class="btn-indigo mr-6 lg:mr-0 lg:mb-6"><i class="fad fa-edit mr-3"></i> Edit</a>
+                                <a href={{ route("wali.edit", $wali->id) }} class="btn-indigo mr-6 lg:mr-0 lg:mb-6"><i class="fad fa-edit mr-3"></i> Edit</a>
                             </td>
                         </tr>
                     @endforeach

@@ -11,18 +11,18 @@
                     
                     <!-- top -->
                     <div class="flex flex-row justify-between items-center">
-                        <div class="h6 text-indigo-700 fad fa-shopping-cart"></div>
-                        <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                        <div class="h6 text-indigo-700 fad fa-poll-people"></div>
+                        {{-- <span class="rounded-full text-white badge bg-teal-400 text-xs">
                             12%
                             <i class="fal fa-chevron-up ml-1"></i>
-                        </span>
+                        </span> --}}
                     </div>
                     <!-- end top -->
     
                     <!-- bottom -->
                     <div class="mt-8">
-                        <h1 class="h5 num-4"></h1>
-                        <p>items sales</p>
+                        <h1 class="h5">{{ $data["wali"] }}</h1>
+                        <p>Orang Tua</p>
                     </div>                
                     <!-- end bottom -->
         
@@ -40,18 +40,18 @@
                     
                     <!-- top -->
                     <div class="flex flex-row justify-between items-center">
-                        <div class="h6 text-red-700 fad fa-store"></div>
-                        <span class="rounded-full text-white badge bg-red-400 text-xs">
+                        <div class="h6 text-red-700 fad fa-running"></div>
+                        {{-- <span class="rounded-full text-white badge bg-red-400 text-xs">
                             6%
                             <i class="fal fa-chevron-down ml-1"></i>
-                        </span>
+                        </span> --}}
                     </div>
                     <!-- end top -->
     
                     <!-- bottom -->
                     <div class="mt-8">
-                        <h1 class="h5 num-4"></h1>
-                        <p>new orders</p>
+                        <h1 class="h5">{{ $data["siswa"] }}</h1>
+                        <p>Siswa</p>
                     </div>                
                     <!-- end bottom -->
         
@@ -70,17 +70,17 @@
                     <!-- top -->
                     <div class="flex flex-row justify-between items-center">
                         <div class="h6 text-yellow-600 fad fa-sitemap"></div>
-                        <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                        {{-- <span class="rounded-full text-white badge bg-teal-400 text-xs">
                             72%
                             <i class="fal fa-chevron-up ml-1"></i>
-                        </span>
+                        </span> --}}
                     </div>
                     <!-- end top -->
     
                     <!-- bottom -->
                     <div class="mt-8">
-                        <h1 class="h5 num-4"></h1>
-                        <p>total Products</p>
+                        <h1 class="h5">{{ $data["pertandingan"] }}</h1>
+                        <p>Pertandingan</p>
                     </div>                
                     <!-- end bottom -->
         
@@ -99,17 +99,17 @@
                     <!-- top -->
                     <div class="flex flex-row justify-between items-center">
                         <div class="h6 text-green-700 fad fa-users"></div>
-                        <span class="rounded-full text-white badge bg-teal-400 text-xs">
+                        {{-- <span class="rounded-full text-white badge bg-teal-400 text-xs">
                             150%
                             <i class="fal fa-chevron-up ml-1"></i>
-                        </span>
+                        </span> --}}
                     </div>
                     <!-- end top -->
     
                     <!-- bottom -->
                     <div class="mt-8">
-                        <h1 class="h5 num-4"></h1>
-                        <p>new Visitor</p>
+                        <h1 class="h5">{{ $data["admin"] }}</h1>
+                        <p>Admin</p>
                     </div>                
                     <!-- end bottom -->
         
@@ -138,7 +138,7 @@
     
                 <!-- info -->
                 <div class="py-2 ml-10">
-                    <h1 class="h6">Good Job, Mohamed!</h1>
+                    <h1 class="h6">{{ $data["greeting"] }}, {{ Auth::user()->name }}!</h1>
                     <p class="text-white text-xs">You've finished all of your tasks for this week.</p>
     
                     <ul class="mt-4">
