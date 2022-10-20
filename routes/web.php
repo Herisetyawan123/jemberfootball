@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MatchController;
+use App\Http\Controllers\MeetController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
@@ -39,11 +41,13 @@ Route::middleware(['auth'])->group(function() {
         Route::post('/update', [WaliController::class, 'update'])->name('wali.update');
     });
     Route::prefix('/pertandingan')->group(function(){
-        Route::get('/', [PostController::class, 'index'])->name('pertandingan.index');
+        Route::get('/', [MatchController::class, 'index'])->name('pertandingan.index');
+        Route::get('/detail/{id}', [MatchController::class, 'detail'])->name('pertandingan.detail');
+        Route::get('/delete/{id}', [MatchController::class, 'delete'])->name('pertandingan.delete');
         Route::get('/tambah/{category}', [PostController::class, 'create'])->name('pertandingan.tambah');
     });
     Route::prefix('/pertemuan')->group(function(){
-        Route::get('/', [PostController::class, 'meet'])->name('pertemuan.index');
+        Route::get('/', [MeetController::class, 'index'])->name('pertemuan.index');
         Route::get('/tambah/{category}', [PostController::class, 'create'])->name('pertemuan.tambah');
     });
     Route::post('/posts/store', [PostController::class, 'store'])->name("posts.store");

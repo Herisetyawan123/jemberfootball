@@ -33,7 +33,7 @@
                             <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" multiple/>
+                        <input id="dropzone-file" type="file" name="gambar[]" class="hidden" onchange="handChange" multiple/>
                     </label>
                 </div> 
                 
@@ -46,6 +46,35 @@
     @section("script")
         <script>
             let dropZoneArea = document.querySelector(".dropzone-area");
+            let inputZone = document.getElementById("dropzone-file");
+            const handleChange = (e) => {
+                console.log("ok")
+            }
+            dropZoneArea.addEventListener("dragover", (e) => {
+                e.preventDefault()
+                dropZoneArea.classList.remove('bg-gray-50')
+                dropZoneArea.classList.add('bg-blue-100')
+            });
+            dropZoneArea.addEventListener("dragleave", (e) => {
+                e.preventDefault()
+                dropZoneArea.classList.add('bg-gray-50')
+                dropZoneArea.classList.remove('bg-blue-100')
+            });
+            dropZoneArea.addEventListener("drop", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("oke")
+                files = event.dataTransfer.files;
+                [...files].forEach(file => {
+                    console.log(file.name)
+                });
+                // console.log(fileobj)
+                // var fname = fileobj.name;
+                // var fsize = fileobj.size;
+                // if (fname.length > 0) {
+                //     document.getElementById('file_info').innerHTML = "File name : " + fname +' <br>File size : ' + bytesToSize(fsize);
+                // }
+            });
         </script>
     @endsection
 </x-dashboard-layout>
