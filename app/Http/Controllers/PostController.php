@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Photo;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function index(){
-        $posts = Post::where("category", "match")->get();
-        return view("dashboard.pertandingan.index", ["posts" => $posts]);
-    }
+
+
     
-    public function meet(){
-        $posts = Post::where("category", "meeting")->get();
-        return view("dashboard.meeting.index", ["posts" => $posts]);
-    }
+
 
     public function create($category){
         return view("dashboard.post.tambah", ["category" => $category]);
@@ -23,8 +21,7 @@ class PostController extends Controller
 
     public function store(Request $request){
         $data = $request->all();
-        // dd($data);
-        Post::create([
+        $post = Post::create([
             "title" => $data['title'],
             "description" => $data['description'],
             "place" => $data['place'],
@@ -32,8 +29,22 @@ class PostController extends Controller
             "category" => $data['category'],
         ]);
 
-        return back();
+        foreach($request->file('gambar') as $gambar){
+            $timeMd5 = md5(date("HismdY"));
+            $newName = Str::slug(explode(".", $gambar->getClientOriginalName())[0]).$timeMd5.".".$gambar->getClientOriginalExtension();
+
+            $path = $gambar->storeAs('public/content', $newName);
+            $link = Storage::url($path);
+            Photo::create([
+                "path" => config('app.url').$link,
+                "post_id" => $post->id
+            ]);
+            // array_push($content, config('app.url').$link);
+        }
+
+        return redirect()->route("pertandingan.index");
     }
+
 
 
 }
