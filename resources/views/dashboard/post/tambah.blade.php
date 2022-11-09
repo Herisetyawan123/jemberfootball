@@ -1,7 +1,7 @@
 <x-dashboard-layout>
     <div class="card">
         <div class="card-header flex items-center justify-between">
-            <h1 class="h6">Tambah Pertandingan</h1>
+            <h1 class="h6">Tambah {{ $category }}</h1>
             <a href={{ url()->previous() }} class="btn-shadow mr-6 lg:mr-0 lg:mb-6"><i class="fad fa-backward mr-3"></i></i> Back</a>
         </div>
         <div class="card-body">

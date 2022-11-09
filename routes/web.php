@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\MeetController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SiswaController;
@@ -49,11 +50,17 @@ Route::middleware(['auth'])->group(function() {
     Route::prefix('/pertemuan')->group(function(){
         Route::get('/', [MeetController::class, 'index'])->name('pertemuan.index');
         Route::get('/detail/{id}', [MeetController::class, 'detail'])->name('pertemuan.detail');
+        Route::get('/delete/{id}', [MeetController::class, 'delete'])->name('pertemuan.delete');
         Route::get('/tambah/{category}', [PostController::class, 'create'])->name('pertemuan.tambah');
     });
     Route::prefix('/pemain')->group(function(){
         Route::get('/', [SiswaController::class, 'index'])->name('pemain.index');
         Route::get('/tambah', [PostController::class, 'create'])->name('pemain.tambah');
+    });
+    Route::prefix('/penilaian')->group(function(){
+        Route::get('/', [PenilaianController::class, 'index'])->name('penilaian.index');
+        Route::get('/{id}', [PenilaianController::class, 'show'])->name('penilaian.add');
+        Route::post('/store', [PenilaianController::class, 'store'])->name('penilaian.store');
     });
     Route::post('/posts/store', [PostController::class, 'store'])->name("posts.store");
 });

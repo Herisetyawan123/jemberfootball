@@ -50,10 +50,10 @@
             <!-- end link -->
 
             <!-- link -->
-            <x-nav-link href="/dashboard">
+            <a class="mb-3 px-3 py-2 rounded {{ Route::is('penilaian.*') ? 'bg-teal-200 text-teal-700' : '' }} hover:bg-teal-100 text-md capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500" href={{ route('penilaian.index') }}>
                 <i class="fad fa-book w-5 mr-2"></i>
                 Penilaian
-            </x-nav-link>
+            </a>
             <!-- end link -->
     
     

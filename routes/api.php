@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\PenilaianController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\WaliController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +27,6 @@ use Illuminate\Support\Facades\Route;
 
 // landing page
 Route::get('landing', [PostController::class, 'index']);
-
-
 Route::post('/login', [AuthController::class, 'login']);
+Route::middleware('auth:sanctum')->get('/wali', [WaliController::class, 'index']);
+Route::get("/penilaian/{bulan}/{tahun}", [PenilaianController::class, 'show']);

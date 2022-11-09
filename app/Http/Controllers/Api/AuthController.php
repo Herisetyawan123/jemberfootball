@@ -27,9 +27,13 @@ class AuthController extends Controller
         $user->tokens()->delete();
         $token = $user->createToken('authenticated', [$user->email, $user->name])->plainTextToken;
         return response()->json([
-            "status" => false,
+            "status" => true,
             "message"=> "Berhasil login.",
             "accessToken" => 'Bearer '.$token,
+            "data" => [
+                "nama" => $user->name,
+                "email" => $user->email,
+            ]
         ]);
     }
 }
